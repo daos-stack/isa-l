@@ -3,15 +3,15 @@ SRC_EXT := gz
 SOURCE   = https://github.com/01org/$(NAME)/archive/v$(VERSION).tar.$(SRC_EXT)
 PATCHES := $(NAME)-553f01f.patch
 
-
-DIST    := $(shell rpm --eval %{?dist})
+COMMON_RPM_ARGS := --define "%_topdir $$PWD/_topdir"
+DIST    := $(shell rpm $(COMMON_RPM_ARGS) --eval %{?dist})
 ifeq ($(DIST),)
 SED_EXPR := 1p
 else
 SED_EXPR := 1s/$(DIST)//p
 endif
-VERSION := $(shell rpm --specfile --qf '%{version}\n' $(NAME).spec | sed -n '1p')
-RELEASE := $(shell rpm --specfile --qf '%{release}\n' $(NAME).spec | sed -n '$(SED_EXPR)')
+VERSION := $(shell rpm $(COMMON_RPM_ARGS) --specfile --qf '%{version}\n' $(NAME).spec | sed -n '1p')
+RELEASE := $(shell rpm $(COMMON_RPM_ARGS) --specfile --qf '%{release}\n' $(NAME).spec | sed -n '$(SED_EXPR)')
 SRPM        := _topdir/SRPMS/$(NAME)-$(VERSION)-$(RELEASE)$(DIST).src.rpm
 RPMS    := $(addsuffix .rpm,$(addprefix _topdir/RPMS/x86_64/,$(shell rpm --specfile $(NAME).spec)))
 SPEC        := $(NAME).spec
@@ -40,10 +40,10 @@ $(VERSION).tar.$(SRC_EXT):
 # the "rpm" for "%" to effectively turn this into a multiple matching
 # target pattern rule
 $(subst rpm,%,$(RPMS)): $(SPEC) $(SOURCES)
-	rpmbuild -bb --define "%_topdir $$PWD/_topdir" $(SPEC)
+	rpmbuild -bb $(COMMON_RPM_ARGS) $(SPEC)
 
 $(SRPM): $(SPEC) $(SOURCES)
-	rpmbuild -bs --define "%_topdir $$PWD/_topdir" $(SPEC)
+	rpmbuild -bs $(COMMON_RPM_ARGS) $(SPEC)
 
 srpm: $(SRPM)
 
