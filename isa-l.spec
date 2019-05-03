@@ -51,7 +51,6 @@ fi
 
 %{make_build}
 
-
 %install
 %make_install
 find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
