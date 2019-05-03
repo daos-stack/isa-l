@@ -1,3 +1,5 @@
+%{!?make_build: %define make_build /usr/bin/make -j8}
+
 Name:		isa-l
 Version:	2.21.0
 Release:	2%{?dist}
@@ -45,6 +47,7 @@ fi
 
 %{make_build}
 
+
 %install
 %make_install
 find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
@@ -61,6 +64,7 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %changelog
 * Fri May 03 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-2
 - Use the more stable "archive" URL for the source
+- Define a make_build macro for SLES 12.3
 
 * Fri Apr 05 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-1
 - initial package

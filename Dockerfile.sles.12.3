@@ -62,6 +62,14 @@ RUN zypper --non-interactive ar https://download.opensuse.org/repositories/devel
     zypper --non-interactive --gpg-auto-import-keys ref 'A project for basic libraries shared among multiple projects (SLE_12_SP3)'
 RUN zypper --non-interactive install libcmocka-devel
 
+# fio
+RUN zypper --non-interactive install libpmem-devel libaio-devel     \
+                                     libpmemblk-devel librbd-devel  \
+                                     libnuma-devel
+
+# isa-l
+RUN zypper --non-interactive install yasm
+
 # force an upgrade to get any newly built RPMs
 ARG CACHEBUST=1
 RUN zypper --non-interactive up
