@@ -1,14 +1,13 @@
 Name:		isa-l
 Version:	2.21.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
 Group:		Development/Libraries
 License:	BSD-3-Clause
 URL:		https://github.com/01org/isa-l/wiki
-#Source0:        https://github.com/01org/%{name}/archive/v%{version}.tar.gz
-Source0:        https://github.com/01org/%{name}/archive/%{name}-%{version}.tar.gz
+Source0:        https://github.com/01org/%{name}/archive/v%{version}.tar.gz
 Patch1:         isa-l-553f01f.patch
 
 BuildRequires: yasm
@@ -60,5 +59,8 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %{_libdir}/*.a
 
 %changelog
+* Fri May 03 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-2
+- Use the more stable "archive" URL for the source
+
 * Fri Apr 05 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-1
 - initial package
