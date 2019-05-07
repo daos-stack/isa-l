@@ -36,8 +36,8 @@ applications. ISA-L includes:
 
 %package devel
 Summary:	ISA-L devel package
-Requires:	%{name}%{?_isa} = %{package_version}
-Provides:	%{name}-static%{?_isa} = %{package_version}
+Requires:	%{name}%{?_isa} = %{version}
+Provides:	%{name}-static%{?_isa} = %{version}
 
 %description devel
 ISA-L devel
