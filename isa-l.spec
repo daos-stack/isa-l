@@ -6,7 +6,7 @@
 
 Name:		isa-l
 Version:	2.21.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
@@ -67,6 +67,9 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %{_libdir}/*.a
 
 %changelog
+* Tue May 07 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-3
+- Bump release for RPM cache coherency
+
 * Fri May 03 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-2
 - Use the more stable "archive" URL for the source
 - Define a make_build macro for SLES 12.3
