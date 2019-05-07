@@ -12,11 +12,11 @@ SED_EXPR := 1s/$(DIST)//p
 endif
 VERSION := $(shell rpm $(COMMON_RPM_ARGS) --specfile --qf '%{version}\n' $(NAME).spec | sed -n '1p')
 RELEASE := $(shell rpm $(COMMON_RPM_ARGS) --specfile --qf '%{release}\n' $(NAME).spec | sed -n '$(SED_EXPR)')
-SRPM        := _topdir/SRPMS/$(NAME)-$(VERSION)-$(RELEASE)$(DIST).src.rpm
+SRPM    := _topdir/SRPMS/$(NAME)-$(VERSION)-$(RELEASE)$(DIST).src.rpm
 RPMS    := $(addsuffix .rpm,$(addprefix _topdir/RPMS/x86_64/,$(shell rpm --specfile $(NAME).spec)))
-SPEC        := $(NAME).spec
+SPEC    := $(NAME).spec
 SOURCES := $(addprefix _topdir/SOURCES/,$(notdir $(SOURCE)) $(PATCHES))
-TARGETS      := $(RPMS) $(SRPM)
+TARGETS  := $(RPMS) $(SRPM)
 
 all: $(TARGETS)
 
@@ -26,6 +26,9 @@ all: $(TARGETS)
 _topdir/SOURCES/%: % | _topdir/SOURCES/
 	rm -f $@
 	ln $< $@
+
+$(NAME)-$(VERSION).tar.$(SRC_EXT).asc:
+	curl -f -L -O '$(SOURCE).asc'
 
 $(NAME)-$(VERSION).tar.$(SRC_EXT):
 	curl -f -L -O '$(SOURCE)'
