@@ -26,7 +26,8 @@ pipeline {
                         dockerfile {
                             filename 'Dockerfile.centos:7'
                             label 'docker_runner'
-                            additionalBuildArgs  '--build-arg UID=$(id -u)'
+                            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg JENKINS_URL=' +
+                                                env.JENKINS_URL
                             args  '--group-add mock --cap-add=SYS_ADMIN --privileged=true'
                         }
                     }
