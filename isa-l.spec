@@ -1,14 +1,19 @@
+# doesn't seem to work on sles 12.3: %{!?make_build:%define make_build %{__make} %{?_smp_mflags}}
+# so...
+%if 0%{?suse_version} <= 1320
+%define make_build  %{__make} %{?_smp_mflags}
+%endif
+
 Name:		isa-l
 Version:	2.21.0
-Release:	1%{?dist}
+Release:	3%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
 Group:		Development/Libraries
 License:	BSD-3-Clause
 URL:		https://github.com/01org/isa-l/wiki
-#Source0:        https://github.com/01org/%{name}/archive/v%{version}.tar.gz
-Source0:        https://github.com/01org/%{name}/archive/%{name}-%{version}.tar.gz
+Source0:        https://github.com/01org/%{name}/archive/v%{version}.tar.gz
 Patch1:         isa-l-553f01f.patch
 
 BuildRequires: yasm
@@ -31,6 +36,8 @@ applications. ISA-L includes:
 
 %package devel
 Summary:	ISA-L devel package
+Requires:	%{name}%{?_isa} = %{version}
+Provides:	%{name}-static%{?_isa} = %{version}
 
 %description devel
 ISA-L devel
@@ -60,5 +67,12 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %{_libdir}/*.a
 
 %changelog
+* Tue May 07 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-3
+- Bump release for RPM cache coherency
+
+* Fri May 03 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-2
+- Use the more stable "archive" URL for the source
+- Define a make_build macro for SLES 12.3
+
 * Fri Apr 05 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-1
 - initial package
