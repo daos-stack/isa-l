@@ -26,6 +26,7 @@ The igzip utility.
 %package -n libisa-l
 Summary: Dynamic library for isa-l functions
 License: BSD-3-Clause
+Obsoletes: lib%{name} < %{version}
 
 %description -n libisa-l
 This package contains the libisal.so dynamic library which contains
@@ -83,6 +84,7 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 - Update to latest
 - Split into a man utilities package with igizp and a library
   package
+  - Obsoletes: the older isa-l packages accordingly
 
 * Tue May 07 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-3
 - Bump release for RPM cache coherency
