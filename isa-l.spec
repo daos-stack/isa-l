@@ -5,8 +5,8 @@
 %endif
 
 Name:		isa-l
-Version:	2.21.0
-Release:	3%{?dist}
+Version:	2.26.0
+Release:	1%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
@@ -67,6 +67,9 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %{_libdir}/*.a
 
 %changelog
+* Wed May 15 2019 Brian J. Murrell <brian.murrell@intel> - 2.26.0-1
+- Update to latest
+
 * Tue May 07 2019 Brian J. Murrell <brian.murrell@intel> - 2.21.0-3
 - Bump release for RPM cache coherency
 
