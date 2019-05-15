@@ -14,7 +14,6 @@ Group:		Development/Libraries
 License:	BSD-3-Clause
 URL:		https://github.com/01org/isa-l/wiki
 Source0:        https://github.com/01org/%{name}/archive/v%{version}.tar.gz
-Patch1:         isa-l-553f01f.patch
 
 BuildRequires: yasm
 
