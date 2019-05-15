@@ -26,7 +26,7 @@ The igzip utility.
 %package -n libisa-l
 Summary: Dynamic library for isa-l functions
 License: BSD-3-Clause
-Obsoletes: lib%{name} < %{version}
+Obsoletes: %{name} < %{version}
 
 %description -n libisa-l
 This package contains the libisal.so dynamic library which contains
