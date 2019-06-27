@@ -1,0 +1,25 @@
+#
+# Copyright 2019, Intel Corporation
+#
+# 'recipe' for Docker to build an Debian package
+#
+# Pull base image
+FROM ubuntu:18.04
+Maintainer John.E.Malmberg <John.E.Malmberg@intel.com>
+
+# Install basic tools
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            autoconf bash curl debmake debhelper dpkg-dev doxygen gcc \
+            git locales make patch rpm
+
+# isa-l
+# isa-l needs a debhelper from backports
+# The openstack-pkg-tools removes one warning about invalid options
+# and replaces it with warnings that it is using default values
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            nasm openstack-pkg-tools debhelper=12.1.1ubuntu1~ubuntu18.04.1
+
+# force an upgrade to get any newly built packages
+ARG CACHEBUST=1
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y; \
+    apt-get autoremove -y

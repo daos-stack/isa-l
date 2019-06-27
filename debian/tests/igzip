@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+cd "$AUTOPKGTEST_TMP"
+echo "test data" > in
+igzip -c in | igzip -d -c > out
+diff in out
