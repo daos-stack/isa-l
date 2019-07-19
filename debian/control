@@ -31,7 +31,7 @@ Package: libisal-dev
 Section: libdevel
 Architecture: amd64 kfreebsd-amd64
 Depends:
- libisal3 (= ${binary:Version}),
+ libisal2 (= ${binary:Version}),
  ${misc:Depends},
 Description: Intel(R) Intelligent Storage Acceleration Library - devel files
  Collection of low-level functions used in storage applications.
@@ -43,7 +43,7 @@ Description: Intel(R) Intelligent Storage Acceleration Library - devel files
  This package contains the development files needed to build against the shared
  library.
 
-Package: libisal3
+Package: libisal2
 Architecture: amd64 kfreebsd-amd64
 Depends:
  ${misc:Depends},

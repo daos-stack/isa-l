@@ -55,7 +55,6 @@ libisal.so.2 libisal2 #MINVER#
  crc32_iscsi_base_slver_0001011d@Base 2.16.0
  crc32_iscsi_slver@Base 2.16.0
  crc32_iscsi_slver_0003011c@Base 2.16.0
- crc32_table_iscsi_base@Base 2.16.0
  crc64_ecma_norm@Base 2.19.0
  crc64_ecma_norm_base@Base 2.19.0
  crc64_ecma_norm_base_slver@Base 2.19.0
