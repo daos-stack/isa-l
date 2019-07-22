@@ -1,0 +1,58 @@
+Source: libisal
+Priority: optional
+Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
+Uploaders:
+ Ondřej Nový <onovy@debian.org>,
+Build-Depends:
+ debhelper (>= 12),
+ nasm
+Standards-Version: 4.3.0
+Section: libs
+Homepage: https://github.com/01org/isa-l
+Vcs-Git: https://salsa.debian.org/openstack-team/third-party/libisal.git
+Vcs-Browser: https://salsa.debian.org/openstack-team/third-party/libisal
+
+Package: isal
+Section: utils
+Architecture: amd64 kfreebsd-amd64
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Intel(R) Intelligent Storage Acceleration Library - tools
+ Collection of low-level functions used in storage applications.
+ Contains fast erasure codes that implement a general
+ Reed-Solomon type encoding for blocks of data that helps protect against
+ erasure of whole blocks. The general ISA-L library contains an expanded
+ set of functions used for data protection, hashing, encryption, etc.
+ .
+ This package contains CLI tools.
+
+Package: libisal-dev
+Section: libdevel
+Architecture: amd64 kfreebsd-amd64
+Depends:
+ libisal2 (= ${binary:Version}),
+ ${misc:Depends},
+Description: Intel(R) Intelligent Storage Acceleration Library - devel files
+ Collection of low-level functions used in storage applications.
+ Contains fast erasure codes that implement a general
+ Reed-Solomon type encoding for blocks of data that helps protect against
+ erasure of whole blocks. The general ISA-L library contains an expanded
+ set of functions used for data protection, hashing, encryption, etc.
+ .
+ This package contains the development files needed to build against the shared
+ library.
+
+Package: libisal2
+Architecture: amd64 kfreebsd-amd64
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Intel(R) Intelligent Storage Acceleration Library - shared library
+ Collection of low-level functions used in storage applications.
+ Contains fast erasure codes that implement a general
+ Reed-Solomon type encoding for blocks of data that helps protect against
+ erasure of whole blocks. The general ISA-L library contains an expanded
+ set of functions used for data protection, hashing, encryption, etc.
+ .
+ This package contains the shared library.

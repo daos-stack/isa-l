@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+gcc -Wall -o "${AUTOPKGTEST_TMP}/crc.bin" debian/tests/crc.c -lisal
+echo "build: OK"
+echo -n "run: "
+${AUTOPKGTEST_TMP}/crc.bin
+echo "OK"

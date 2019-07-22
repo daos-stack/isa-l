@@ -1,0 +1,122 @@
+libisal (2.26.0-1) unstable; urgency=medium
+
+  [ John Malmberg ]
+  * Patched Upstream release
+  * Experimental build for daos-stack project
+
+ -- John Malmberg <john.e.malmberg@intel.com>  Thu, 27 Jun 2019 14:41:00 +0000
+
+libisal (2.25.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Running wrap-and-sort -bast
+  * d/patches/fix-man-name.patch: Drop, applied upstream
+  * Bump standards version to 4.3.0 (no changes)
+  * Bump debhelper compat level to 12 and use debhelper-compat
+  * d/libisal2.symbols: Add Build-Depends-Package
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 31 Dec 2018 23:11:16 +0100
+
+libisal (2.24.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/control: Use team+openstack@tracker.debian.org as maintainer
+  * Add isal binary package with CLI tools
+  * d/libisal2.symbols: Update for new upstream release
+  * Bump Standards-Version to 4.2.1 (no changes needed)
+  * d/fix-man-name.patch: Add, fix manpage name section
+
+ -- Ondřej Nový <onovy@debian.org>  Sat, 29 Sep 2018 13:29:35 +0200
+
+libisal (2.23.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/copyright: Bump copyright years
+  * Bump Standards-Version to 4.1.5 (no changes needed)
+  * Add simple autopkgtest (CRC)
+  * Add examples
+  * Add upstream metadata
+
+ -- Ondřej Nový <onovy@debian.org>  Tue, 31 Jul 2018 09:37:09 +0200
+
+libisal (2.22.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/libisal2.symbols: Update for new upstream version
+
+ -- Ondřej Nový <onovy@debian.org>  Fri, 13 Apr 2018 14:29:35 +0200
+
+libisal (2.21.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/libisal2.symbols: Update for new upstream version
+  * d/rules: Use dh_missing --fail-missing and don't build static
+  * Bump Standards-Version to 4.1.3 (no changes needed)
+  * Bump debhelper compat level to 11
+
+ -- Ondřej Nový <onovy@debian.org>  Tue, 09 Jan 2018 15:10:30 +0100
+
+libisal (2.20.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Removed autoreconf and parallel params for dh, it's default
+  * d/libisal2.symbols: Update for new version
+  * Updating standards version to 4.1.1.
+
+ -- Ondřej Nový <onovy@debian.org>  Tue, 31 Oct 2017 16:18:15 +0100
+
+libisal (2.19.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * New upstream release
+  * d/watch: Fix project name
+  * d/libisal2.symbols: Fix for new release
+  * d/copyright: Bump copyright years
+  * Removed autotools-dev and dh-autoreconf from B-D
+
+  [ Daniel Baumann ]
+  * Updating vcs fields.
+  * Updating maintainer field.
+  * Running wrap-and-sort -bast.
+  * Updating standards version to 4.0.0.
+  * Removing gbp.conf, not used anymore or should be specified in the
+    developers dotfiles.
+
+ -- Ondřej Nový <onovy@debian.org>  Sun, 06 Aug 2017 02:00:43 +0200
+
+libisal (2.17.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/s/options: extend-diff-ignore of .gitreview
+  * d/control: Using OpenStack's Gerrit as VCS URLs.
+  * Bumped debhelper version to 10
+  * Removed d/p/shlib-with-executable-stack-fix.patch
+    (applied upstream)
+
+ -- Ondřej Nový <onovy@debian.org>  Sun, 25 Dec 2016 15:35:36 +0100
+
+libisal (2.16.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Standards-Version is 3.9.8 now (no change)
+  * d/{control,copyright}: Use my @debian.org email address
+  * Added shlib-with-executable-stack-fix.patch
+
+ -- Ondřej Nový <onovy@debian.org>  Fri, 24 Jun 2016 01:09:43 +0200
+
+libisal (2.15.0-2) unstable; urgency=medium
+
+  * Use 'make check' instead of 'make test' to test only multibinary version.
+  * Removed patch disable_avx_tests.patch
+  * Removed warning of SSE/AVX from description, package ships C-only
+    based functions too.
+  * Fixed architecture in d/control (Closes: #816422).
+
+ -- Ondřej Nový <novy@ondrej.org>  Tue, 01 Mar 2016 21:44:10 +0100
+
+libisal (2.15.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #815910)
+
+ -- Ondřej Nový <novy@ondrej.org>  Sat, 27 Feb 2016 14:00:50 +0100
