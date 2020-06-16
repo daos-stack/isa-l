@@ -36,6 +36,41 @@ DISTRO_ID := ubuntu$(VERSION_ID)
 DISTRO_BASE = $(basename UBUNTU_$(VERSION_ID))
 VERSION_ID_STR := $(subst $(DOT),_,$(VERSION_ID))
 endif
+ifeq ($(ID),fedora)
+# a Fedora-based mock builder
+# derive the the values of:
+# VERSION_ID (i.e. 7)
+# DISTRO_ID (i.e. el7)
+# DISTRO_BASE (i.e. EL_7)
+# from the CHROOT_NAME
+ifndef LANG
+export LANG = C
+endif
+ifndef LC_ALL
+export LC_ALL = C
+endif
+ifeq ($(CHROOT_NAME),epel-7-x86_64)
+VERSION_ID  := 7
+DISTRO_ID   := el7
+DISTRO_BASE := EL_7
+endif
+ifeq ($(CHROOT_NAME),epel-8-x86_64)
+VERSION_ID  := 8
+DISTRO_ID   := el8
+DISTRO_BASE := EL_8
+endif
+ifeq ($(CHROOT_NAME),opensuse-leap-15.1-x86_64)
+VERSION_ID  := 15.1
+DISTRO_ID   := sl15.1
+DISTRO_BASE := LEAP_15
+endif
+ifeq ($(CHROOT_NAME),leap-42.3-x86_64)
+# TBD if support is ever resurrected
+endif
+ifeq ($(CHROOT_NAME),sles-12.3-x86_64)
+# TBD if support is ever resurrected
+endif
+endif
 ifeq ($(ID),centos)
 DISTRO_ID := el$(VERSION_ID)
 DISTRO_BASE := $(basename EL_$(VERSION_ID))
