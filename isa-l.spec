@@ -14,7 +14,7 @@
 
 Name:		isa-l
 Version:	2.26.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
@@ -88,20 +88,26 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %endif
 
 %files
+%license LICENSE
 %{_bindir}/*
 %{_mandir}/man1/*
 
 %doc
 
 %files -n %{isal_libname}
+%license LICENSE
 %{_libdir}/*.so.*
 
 %files -n %{isal_devname}
+%license LICENSE
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/*.a
 
 %changelog
+* Tue Jun 16 2020 Brian J. Murrell <brian.murrell@intel> - 2.26.0-3
+- Add %license files
+
 * Wed Oct 02 2019 John E. Malmberg <john.e.malmberg@intel> - 2.26.0-2
 - Fix some SUSE rpmlint packaging complaints
 
