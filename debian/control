@@ -4,7 +4,7 @@ Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
 Uploaders:
  Ondřej Nový <onovy@debian.org>,
 Build-Depends:
- debhelper-compat (= 13),
+ debhelper (>= 12),
  nasm,
 Standards-Version: 4.5.1
 Section: libs
