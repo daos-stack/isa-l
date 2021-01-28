@@ -1,10 +1,31 @@
-libisal (2.26.0-1) unstable; urgency=medium
+libisal (2.30.0-1) unstable; urgency=medium
 
-  [ John Malmberg ]
-  * Patched Upstream release
-  * Experimental build for daos-stack project
+  [ Brian J. Murrell ]
+  * New upstream release
 
- -- John Malmberg <john.e.malmberg@intel.com>  Thu, 27 Jun 2019 14:41:00 +0000
+ -- Brian J. Murrell <brian.murrell@intel.com>  Thu, 28 Jan 2021 15:52:29 -0500
+
+libisal (2.28.0-2) unstable; urgency=medium
+
+  * Add arm64 symbols file.
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 21 Oct 2019 10:44:11 +0200
+
+libisal (2.28.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Running wrap-and-sort -bast.
+  * Bump Standards-Version to 4.4.1.
+
+ -- Ondřej Nový <onovy@debian.org>  Sun, 20 Oct 2019 21:53:35 +0200
+
+libisal (2.27.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/copyright: Bump copyright years
+  * Add arm64 to supported architectures
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 08 Jul 2019 16:40:54 +0200
 
 libisal (2.25.0-1) unstable; urgency=medium
 

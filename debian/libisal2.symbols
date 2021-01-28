@@ -9,15 +9,18 @@ libisal.so.2 libisal2 #MINVER#
  crc16_t10dif_01@Base 2.16.0
  crc16_t10dif_01_slver@Base 2.16.0
  crc16_t10dif_01_slver_01060010@Base 2.16.0
+ crc16_t10dif_02@Base 2.29.0
  crc16_t10dif_base@Base 2.16.0
  crc16_t10dif_base_slver@Base 2.16.0
  crc16_t10dif_base_slver_0001011e@Base 2.16.0
+ crc16_t10dif_by16_10@Base 2.29.0
  crc16_t10dif_by4@Base 2.16.0
  crc16_t10dif_by4_slver@Base 2.16.0
  crc16_t10dif_by4_slver_05020016@Base 2.16.0
  crc16_t10dif_copy@Base 2.21.0
  crc16_t10dif_copy_base@Base 2.21.0
  crc16_t10dif_copy_by4@Base 2.21.0
+ crc16_t10dif_copy_by4_02@Base 2.29.0
  crc16_t10dif_copy_by4_slver@Base 2.21.0
  crc16_t10dif_copy_by4_slver_05020000@Base 2.21.0
  crc16_t10dif_slver@Base 2.16.0
@@ -26,7 +29,9 @@ libisal.so.2 libisal2 #MINVER#
  crc32_gzip_refl_base@Base 2.19.0
  crc32_gzip_refl_base_slver@Base 2.19.0
  crc32_gzip_refl_base_slver_0000002b@Base 2.19.0
+ crc32_gzip_refl_by16_10@Base 2.29.0
  crc32_gzip_refl_by8@Base 2.19.0
+ crc32_gzip_refl_by8_02@Base 2.29.0
  crc32_gzip_refl_by8_slver@Base 2.19.0
  crc32_gzip_refl_by8_slver_0100002c@Base 2.19.0
  crc32_gzip_refl_slver@Base 2.19.0
@@ -35,9 +40,11 @@ libisal.so.2 libisal2 #MINVER#
  crc32_ieee_01@Base 2.16.0
  crc32_ieee_01_slver@Base 2.16.0
  crc32_ieee_01_slver_01060011@Base 2.16.0
+ crc32_ieee_02@Base 2.29.0
  crc32_ieee_base@Base 2.16.0
  crc32_ieee_base_slver@Base 2.16.0
  crc32_ieee_base_slver_0001011f@Base 2.16.0
+ crc32_ieee_by16_10@Base 2.29.0
  crc32_ieee_by4@Base 2.16.0
  crc32_ieee_by4_slver@Base 2.16.0
  crc32_ieee_by4_slver_05020017@Base 2.16.0
@@ -53,12 +60,14 @@ libisal.so.2 libisal2 #MINVER#
  crc32_iscsi_base@Base 2.16.0
  crc32_iscsi_base_slver@Base 2.16.0
  crc32_iscsi_base_slver_0001011d@Base 2.16.0
+ crc32_iscsi_by16_10@Base 2.30.0
  crc32_iscsi_slver@Base 2.16.0
  crc32_iscsi_slver_0003011c@Base 2.16.0
  crc64_ecma_norm@Base 2.19.0
  crc64_ecma_norm_base@Base 2.19.0
  crc64_ecma_norm_base_slver@Base 2.19.0
  crc64_ecma_norm_base_slver_00000019@Base 2.19.0
+ crc64_ecma_norm_by16_10@Base 2.29.0
  crc64_ecma_norm_by8@Base 2.19.0
  crc64_ecma_norm_by8_slver@Base 2.19.0
  crc64_ecma_norm_by8_slver_0100001a@Base 2.19.0
@@ -68,6 +77,7 @@ libisal.so.2 libisal2 #MINVER#
  crc64_ecma_refl_base@Base 2.19.0
  crc64_ecma_refl_base_slver@Base 2.19.0
  crc64_ecma_refl_base_slver_0000001c@Base 2.19.0
+ crc64_ecma_refl_by16_10@Base 2.29.0
  crc64_ecma_refl_by8@Base 2.19.0
  crc64_ecma_refl_by8_slver@Base 2.19.0
  crc64_ecma_refl_by8_slver_0100001d@Base 2.19.0
@@ -77,6 +87,7 @@ libisal.so.2 libisal2 #MINVER#
  crc64_iso_norm_base@Base 2.19.0
  crc64_iso_norm_base_slver@Base 2.19.0
  crc64_iso_norm_base_slver_0000001f@Base 2.19.0
+ crc64_iso_norm_by16_10@Base 2.29.0
  crc64_iso_norm_by8@Base 2.19.0
  crc64_iso_norm_by8_slver@Base 2.19.0
  crc64_iso_norm_by8_slver_01000020@Base 2.19.0
@@ -86,6 +97,7 @@ libisal.so.2 libisal2 #MINVER#
  crc64_iso_refl_base@Base 2.19.0
  crc64_iso_refl_base_slver@Base 2.19.0
  crc64_iso_refl_base_slver_00000022@Base 2.19.0
+ crc64_iso_refl_by16_10@Base 2.29.0
  crc64_iso_refl_by8@Base 2.19.0
  crc64_iso_refl_by8_slver@Base 2.19.0
  crc64_iso_refl_by8_slver_01000023@Base 2.19.0
@@ -95,6 +107,7 @@ libisal.so.2 libisal2 #MINVER#
  crc64_jones_norm_base@Base 2.19.0
  crc64_jones_norm_base_slver@Base 2.19.0
  crc64_jones_norm_base_slver_00000025@Base 2.19.0
+ crc64_jones_norm_by16_10@Base 2.29.0
  crc64_jones_norm_by8@Base 2.19.0
  crc64_jones_norm_by8_slver@Base 2.19.0
  crc64_jones_norm_by8_slver_01000026@Base 2.19.0
@@ -104,6 +117,7 @@ libisal.so.2 libisal2 #MINVER#
  crc64_jones_refl_base@Base 2.19.0
  crc64_jones_refl_base_slver@Base 2.19.0
  crc64_jones_refl_base_slver_00000028@Base 2.19.0
+ crc64_jones_refl_by16_10@Base 2.29.0
  crc64_jones_refl_by8@Base 2.19.0
  crc64_jones_refl_by8_slver@Base 2.19.0
  crc64_jones_refl_by8_slver_01000029@Base 2.19.0
@@ -116,6 +130,7 @@ libisal.so.2 libisal2 #MINVER#
  decode_huffman_code_block_stateless_base@Base 2.19.0
  ec_encode_data@Base 2.15.0
  ec_encode_data_avx2@Base 2.15.0
+ ec_encode_data_avx512@Base 2.29.0
  ec_encode_data_avx@Base 2.15.0
  ec_encode_data_base@Base 2.15.0
  ec_encode_data_base_slver@Base 2.15.0
@@ -127,6 +142,7 @@ libisal.so.2 libisal2 #MINVER#
  ec_encode_data_sse_slver_00020069@Base 2.15.0
  ec_encode_data_update@Base 2.15.0
  ec_encode_data_update_avx2@Base 2.15.0
+ ec_encode_data_update_avx512@Base 2.29.0
  ec_encode_data_update_avx@Base 2.15.0
  ec_encode_data_update_base@Base 2.15.0
  ec_encode_data_update_slver@Base 2.15.0
@@ -137,14 +153,17 @@ libisal.so.2 libisal2 #MINVER#
  ec_init_tables_slver_00010068@Base 2.15.0
  encode_deflate_icf@Base 2.19.0
  encode_deflate_icf_04@Base 2.19.0
+ encode_deflate_icf_06@Base 2.29.0
  encode_deflate_icf_base@Base 2.19.0
  flatten_ll@Base 2.19.0
  gen_icf_map_h1_base@Base 2.21.0
  gen_icf_map_lh1@Base 2.21.0
  gen_icf_map_lh1_04@Base 2.22.0
+ gen_icf_map_lh1_06@Base 2.29.0
  gf_2vect_dot_prod_avx2@Base 2.15.0
  gf_2vect_dot_prod_avx2_slver@Base 2.15.0
  gf_2vect_dot_prod_avx2_slver_04050196@Base 2.15.0
+ gf_2vect_dot_prod_avx512@Base 2.29.0
  gf_2vect_dot_prod_avx@Base 2.15.0
  gf_2vect_dot_prod_avx_slver@Base 2.15.0
  gf_2vect_dot_prod_avx_slver_02050191@Base 2.15.0
@@ -154,6 +173,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_2vect_mad_avx2@Base 2.15.0
  gf_2vect_mad_avx2_slver@Base 2.15.0
  gf_2vect_mad_avx2_slver_04010205@Base 2.15.0
+ gf_2vect_mad_avx512@Base 2.29.0
  gf_2vect_mad_avx@Base 2.15.0
  gf_2vect_mad_avx_slver@Base 2.15.0
  gf_2vect_mad_avx_slver_02010204@Base 2.15.0
@@ -163,6 +183,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_3vect_dot_prod_avx2@Base 2.15.0
  gf_3vect_dot_prod_avx2_slver@Base 2.15.0
  gf_3vect_dot_prod_avx2_slver_04050197@Base 2.15.0
+ gf_3vect_dot_prod_avx512@Base 2.29.0
  gf_3vect_dot_prod_avx@Base 2.15.0
  gf_3vect_dot_prod_avx_slver@Base 2.15.0
  gf_3vect_dot_prod_avx_slver_02050192@Base 2.15.0
@@ -172,6 +193,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_3vect_mad_avx2@Base 2.15.0
  gf_3vect_mad_avx2_slver@Base 2.15.0
  gf_3vect_mad_avx2_slver_04010208@Base 2.15.0
+ gf_3vect_mad_avx512@Base 2.29.0
  gf_3vect_mad_avx@Base 2.15.0
  gf_3vect_mad_avx_slver@Base 2.15.0
  gf_3vect_mad_avx_slver_02010207@Base 2.15.0
@@ -181,6 +203,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_4vect_dot_prod_avx2@Base 2.15.0
  gf_4vect_dot_prod_avx2_slver@Base 2.15.0
  gf_4vect_dot_prod_avx2_slver_04050198@Base 2.15.0
+ gf_4vect_dot_prod_avx512@Base 2.29.0
  gf_4vect_dot_prod_avx@Base 2.15.0
  gf_4vect_dot_prod_avx_slver@Base 2.15.0
  gf_4vect_dot_prod_avx_slver_02050193@Base 2.15.0
@@ -190,6 +213,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_4vect_mad_avx2@Base 2.15.0
  gf_4vect_mad_avx2_slver@Base 2.15.0
  gf_4vect_mad_avx2_slver_0401020b@Base 2.15.0
+ gf_4vect_mad_avx512@Base 2.29.0
  gf_4vect_mad_avx@Base 2.15.0
  gf_4vect_mad_avx_slver@Base 2.15.0
  gf_4vect_mad_avx_slver_0201020a@Base 2.15.0
@@ -199,6 +223,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_5vect_dot_prod_avx2@Base 2.15.0
  gf_5vect_dot_prod_avx2_slver@Base 2.15.0
  gf_5vect_dot_prod_avx2_slver_04040199@Base 2.15.0
+ gf_5vect_dot_prod_avx512@Base 2.29.0
  gf_5vect_dot_prod_avx@Base 2.15.0
  gf_5vect_dot_prod_avx_slver@Base 2.15.0
  gf_5vect_dot_prod_avx_slver_02040194@Base 2.15.0
@@ -208,6 +233,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_5vect_mad_avx2@Base 2.15.0
  gf_5vect_mad_avx2_slver@Base 2.15.0
  gf_5vect_mad_avx2_slver_0401020e@Base 2.15.0
+ gf_5vect_mad_avx512@Base 2.29.0
  gf_5vect_mad_avx@Base 2.15.0
  gf_5vect_mad_avx_slver@Base 2.15.0
  gf_5vect_mad_avx_slver_0201020d@Base 2.15.0
@@ -217,6 +243,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_6vect_dot_prod_avx2@Base 2.15.0
  gf_6vect_dot_prod_avx2_slver@Base 2.15.0
  gf_6vect_dot_prod_avx2_slver_0404019a@Base 2.15.0
+ gf_6vect_dot_prod_avx512@Base 2.29.0
  gf_6vect_dot_prod_avx@Base 2.15.0
  gf_6vect_dot_prod_avx_slver@Base 2.15.0
  gf_6vect_dot_prod_avx_slver_02040195@Base 2.15.0
@@ -226,6 +253,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_6vect_mad_avx2@Base 2.15.0
  gf_6vect_mad_avx2_slver@Base 2.15.0
  gf_6vect_mad_avx2_slver_04010211@Base 2.15.0
+ gf_6vect_mad_avx512@Base 2.29.0
  gf_6vect_mad_avx@Base 2.15.0
  gf_6vect_mad_avx_slver@Base 2.15.0
  gf_6vect_mad_avx_slver_02010210@Base 2.15.0
@@ -249,6 +277,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_vect_dot_prod_avx2@Base 2.15.0
  gf_vect_dot_prod_avx2_slver@Base 2.15.0
  gf_vect_dot_prod_avx2_slver_04050190@Base 2.15.0
+ gf_vect_dot_prod_avx512@Base 2.29.0
  gf_vect_dot_prod_avx@Base 2.15.0
  gf_vect_dot_prod_avx_slver@Base 2.15.0
  gf_vect_dot_prod_avx_slver_02050061@Base 2.15.0
@@ -264,6 +293,7 @@ libisal.so.2 libisal2 #MINVER#
  gf_vect_mad_avx2@Base 2.15.0
  gf_vect_mad_avx2_slver@Base 2.15.0
  gf_vect_mad_avx2_slver_04010202@Base 2.15.0
+ gf_vect_mad_avx512@Base 2.29.0
  gf_vect_mad_avx@Base 2.15.0
  gf_vect_mad_avx_slver@Base 2.15.0
  gf_vect_mad_avx_slver_02010201@Base 2.15.0
@@ -288,8 +318,6 @@ libisal.so.2 libisal2 #MINVER#
  gf_vect_mul_sse@Base 2.15.0
  gf_vect_mul_sse_slver@Base 2.15.0
  gf_vect_mul_sse_slver_00030034@Base 2.15.0
- gff_base@Base 2.15.0
- gflog_base@Base 2.15.0
  gzip_hdr@Base 2.16.0
  gzip_hdr_bytes@Base 2.16.0
  gzip_trl_bytes@Base 2.16.0
@@ -339,7 +367,9 @@ libisal.so.2 libisal2 #MINVER#
  isal_deflate_init@Base 2.16.0
  isal_deflate_init_slver@Base 2.16.0
  isal_deflate_init_slver_01030081@Base 2.16.0
+ isal_deflate_process_dict@Base 2.30.0
  isal_deflate_reset@Base 2.19.0
+ isal_deflate_reset_dict@Base 2.30.0
  isal_deflate_reset_slver@Base 2.19.0
  isal_deflate_reset_slver_0001008e@Base 2.19.0
  isal_deflate_set_dict@Base 2.19.0
@@ -399,6 +429,7 @@ libisal.so.2 libisal2 #MINVER#
  pq_gen_avx2@Base 2.16.0
  pq_gen_avx2_slver@Base 2.16.0
  pq_gen_avx2_slver_04030041@Base 2.16.0
+ pq_gen_avx512@Base 2.29.0
  pq_gen_avx@Base 2.16.0
  pq_gen_avx_slver@Base 2.16.0
  pq_gen_avx_slver_020a0039@Base 2.16.0
@@ -410,9 +441,12 @@ libisal.so.2 libisal2 #MINVER#
  pq_gen_sse@Base 2.16.0
  pq_gen_sse_slver@Base 2.16.0
  pq_gen_sse_slver_00090032@Base 2.16.0
+ pregen_dist_huff_code@Base 2.30.0
+ pregen_lit_huff_code@Base 2.30.0
  repeated_char_header@Base 2.16.0
  set_long_icf_fg@Base 2.21.0
  set_long_icf_fg_04@Base 2.22.0
+ set_long_icf_fg_06@Base 2.29.0
  set_long_icf_fg_base@Base 2.21.0
  static_dist_huff_code@Base 2.24.0
  static_lit_huff_code@Base 2.24.0
@@ -426,6 +460,7 @@ libisal.so.2 libisal2 #MINVER#
  xor_check_sse_slver@Base 2.16.0
  xor_check_sse_slver_00030031@Base 2.16.0
  xor_gen@Base 2.16.0
+ xor_gen_avx512@Base 2.29.0
  xor_gen_avx@Base 2.16.0
  xor_gen_avx_slver@Base 2.16.0
  xor_gen_avx_slver_02050037@Base 2.16.0

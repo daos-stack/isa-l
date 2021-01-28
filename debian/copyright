@@ -4,11 +4,11 @@ Upstream-Author: Intel Corporation <sg.support.isal@intel.com>
 Source: https://github.com/01org/isa-l
 
 Files: *
-Copyright: 2011-2018, Intel Corporation <sg.support.isal@intel.com>
+Copyright: 2011-2019, Intel Corporation <sg.support.isal@intel.com>
 License: BSD-3-clause
 
 Files: debian/*
-Copyright: 2016-2018, Ondřej Nový <onovy@debian.org>
+Copyright: 2016-2019, Ondřej Nový <onovy@debian.org>
 License: BSD-3-clause
 
 License: BSD-3-clause
