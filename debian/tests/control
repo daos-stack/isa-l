@@ -1,5 +1,8 @@
 Test-Command: debian/tests/crc
-Depends: @, build-essential
+Depends:
+ build-essential,
+ @,
 
 Test-Command: debian/tests/igzip
-Depends: isal
+Depends:
+ isal,

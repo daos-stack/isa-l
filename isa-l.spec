@@ -13,8 +13,8 @@
 
 
 Name:		isa-l
-Version:	2.26.0
-Release:	3%{?dist}
+Version:	2.30.0
+Release:	1%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
@@ -103,8 +103,14 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/*.a
+%{_libdir}/pkgconfig/libisal.pc
 
 %changelog
+* Thu Jan 28 2021 Brian J. Murrell <brian.murrell@intel> - 2.30.0-1
+- Update to latest
+- Add %%{_libdir}/pkgconfig/libisal.pc to -devel package
+
+
 * Tue Jun 16 2020 Brian J. Murrell <brian.murrell@intel> - 2.26.0-3
 - Add %license files
 
