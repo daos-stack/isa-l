@@ -2,6 +2,7 @@ libisal (2.30.0-1) unstable; urgency=medium
 
   [ Brian J. Murrell ]
   * New upstream release
+  * Add usr/lib/*/pkgconfig/* to -dev package
 
  -- Brian J. Murrell <brian.murrell@intel.com>  Thu, 28 Jan 2021 15:52:29 -0500
 

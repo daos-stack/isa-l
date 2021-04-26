@@ -110,7 +110,6 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 - Update to latest
 - Add %%{_libdir}/pkgconfig/libisal.pc to -devel package
 
-
 * Tue Jun 16 2020 Brian J. Murrell <brian.murrell@intel> - 2.26.0-3
 - Add %license files
 
