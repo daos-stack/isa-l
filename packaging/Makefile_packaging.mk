@@ -28,6 +28,11 @@ RPM_BUILD_OPTIONS += $(EXTERNAL_RPM_BUILD_OPTIONS)
 # some defaults the caller can override
 PACKAGING_CHECK_DIR ?= ../packaging
 LOCAL_REPOS ?= true
+ifeq ($(ID_LIKE),debian)
+DAOS_REPO_TYPE ?= LOCAL
+else
+DAOS_REPO_TYPE ?= STABLE
+endif
 TEST_PACKAGES ?= ${NAME}
 
 # unfortunately we cannot always name the repo the same as the project
@@ -36,6 +41,7 @@ REPO_NAME ?= $(NAME)
 PR_REPOS                 ?= $(shell git show -s --format=%B | sed -ne 's/^PR-repos: *\(.*\)/\1/p')
 LEAP_15_PR_REPOS         ?= $(shell git show -s --format=%B | sed -ne 's/^PR-repos-leap15: *\(.*\)/\1/p')
 EL_7_PR_REPOS            ?= $(shell git show -s --format=%B | sed -ne 's/^PR-repos-el7: *\(.*\)/\1/p')
+EL_8_PR_REPOS            ?= $(shell git show -s --format=%B | sed -ne 's/^PR-repos-el8: *\(.*\)/\1/p')
 UBUNTU_20_04_PR_REPOS    ?= $(shell git show -s --format=%B | sed -ne 's/^PR-repos-ubuntu20: *\(.*\)/\1/p')
 
 COMMON_RPM_ARGS  := --define "_topdir $$PWD/_topdir" $(BUILD_DEFINES)
@@ -69,13 +75,12 @@ define distro_map
 	case $(DISTRO_ID) in               \
 	    el7) distro="centos7"          \
 	    ;;                             \
-	    el8) distro="centos8"          \
+	    el8) distro="centos8";         \
+		     if [ -n "$DOT_VER" ] ; then distro="centos8.${DOT_VER}"; fi \
 	    ;;                             \
-	    sle12.3) distro="sles12.3"     \
+	    sl15.2) distro=leap15.2        \
 	    ;;                             \
-	    sl42.3) distro="leap42.3"      \
-	    ;;                             \
-	    sl15.*) distro="leap15"        \
+	    sl15.*) distro=leap15.3        \
 	    ;;                             \
 	    ubuntu*) distro="$(DISTRO_ID)" \
 	    ;;                             \
@@ -125,8 +130,7 @@ all: $(TARGETS)
 	xz -z $<
 
 _topdir/SOURCES/%: % | _topdir/SOURCES/
-	rm -f $@
-	ln $< $@
+	if [ ! -d "$@" ]; then rm -f "$@"; ln "$<" "$@"; fi
 
 # At least one spec file, SLURM (sles), has a different version for the
 # download file than the version in the spec file.
@@ -290,19 +294,33 @@ ls: $(TARGETS)
 # *_GROUP_* repos may not supply a repomd.xml.key.
 ifeq ($(LOCAL_REPOS),true)
 ifneq ($(REPOSITORY_URL),)
-ifneq ($(DAOS_STACK_$(DISTRO_BASE)_LOCAL_REPO),)
+ifneq ($(DAOS_STACK_$(DISTRO_BASE)_$(DAOS_REPO_TYPE)_REPO),)
 ifeq ($(ID_LIKE),debian)
 # $(DISTRO_BASE)_LOCAL_REPOS is a list separated by | because you cannot pass lists
 # of values with spaces as environment variables
 $(DISTRO_BASE)_LOCAL_REPOS := [trusted=yes]
 endif
-$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS) $(REPOSITORY_URL)$(DAOS_STACK_$(DISTRO_BASE)_LOCAL_REPO)/
+$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS) $(REPOSITORY_URL)$(DAOS_STACK_$(DISTRO_BASE)_$(DAOS_REPO_TYPE)_REPO)/
 endif
 $(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS)|
-ifneq ($(DAOS_STACK_$(DISTRO_BASE)_GROUP_REPO),)
-$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS)$(REPOSITORY_URL)$(DAOS_STACK_$(DISTRO_BASE)_GROUP_REPO)/|
+ifneq ($(DAOS_STACK_$(DISTRO_BASE)_DOCKER_$(DAOS_REPO_TYPE)_REPO),)
+DISTRO_REPOS = $(DAOS_STACK_$(DISTRO_BASE)_DOCKER_$(DAOS_REPO_TYPE)_REPO)
+$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS)$(REPOSITORY_URL)$(DAOS_STACK_$(DISTRO_BASE)_DOCKER_$(DAOS_REPO_TYPE)_REPO)/|
+endif
+ifneq ($(DAOS_STACK_$(DISTRO_BASE)_APPSTREAM_$(DAOS_REPO_TYPE)_REPO),)
+$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS)$(REPOSITORY_URL)$(DAOS_STACK_$(DISTRO_BASE)_APPSTREAM_$(DAOS_REPO_TYPE)_REPO)|
+endif
+ifneq ($(DAOS_STACK_$(DISTRO_BASE)_POWERTOOLS_$(DAOS_REPO_TYPE)_REPO),)
+$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS)$(REPOSITORY_URL)$(DAOS_STACK_$(DISTRO_BASE)_POWERTOOLS_$(DAOS_REPO_TYPE)_REPO)|
+endif
+ifneq ($(ID_LIKE),debian)
+ifneq ($(DAOS_STACK_INTEL_ONEAPI_REPO),)
+$(DISTRO_BASE)_LOCAL_REPOS := $($(DISTRO_BASE)_LOCAL_REPOS)$(REPOSITORY_URL)$(DAOS_STACK_INTEL_ONEAPI_REPO)|
 endif
 endif
+endif
+# else
+# Mirror repos for building a point release.
 endif
 ifeq ($(ID_LIKE),debian)
 chrootbuild: $(DEB_TOP)/$(DEB_DSC)
@@ -330,6 +348,7 @@ chrootbuild: $(SRPM) $(CALLING_MAKEFILE)
 	DISTRO_BASE_LOCAL_REPOS="$($(DISTRO_BASE)_LOCAL_REPOS)" \
 	MOCK_OPTIONS="$(MOCK_OPTIONS)"                          \
 	RPM_BUILD_OPTIONS='$(RPM_BUILD_OPTIONS)'                \
+	DISTRO_REPOS='$(DISTRO_REPOS)'                          \
 	TARGET="$<"                                             \
 	packaging/rpm_chrootbuild
 endif
@@ -377,7 +396,7 @@ endif
 test:
 	# Test the rpmbuild by installing the built RPM
 	$(call install_repos,$(REPO_NAME)@$(BRANCH_NAME):$(BUILD_NUMBER))
-	yum -y install $(TEST_PACKAGES)
+	dnf -y install $(TEST_PACKAGES)
 
 show_spec:
 	@echo '$(SPEC)'
