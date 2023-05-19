@@ -11,21 +11,22 @@
 %define isal_devname libisa-l-devel
 %endif
 
+%global _hardened_build 1
 
-Name:		isa-l
+Name:			isa-l
 Version:	2.30.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 
 Summary:	Intelligent Storage Acceleration Library
 
 %if 0%{?suse_version} >= 1315
-Group: Development/Libraries/C and C++
+Group:		Development/Libraries/C and C++
 %else
 Group:		Development/Libraries
 %endif
 License:	BSD-3-Clause
-URL:		https://github.com/01org/isa-l/wiki
-Source0:        https://github.com/01org/%{name}/archive/v%{version}.tar.gz
+URL:			https://github.com/01org/isa-l/wiki
+Source0:	https://github.com/01org/%{name}/archive/v%{version}.tar.gz
 
 BuildRequires: yasm
 
@@ -47,12 +48,12 @@ This package contains the libisal.so dynamic library which contains
 a collection of optimized low-level functions targeting storage
 applications. ISA-L includes:
 - Erasure codes - Fast block Reed-Solomon type erasure codes for any
-                  encode/decode matrix in GF(2^8).
+encode/decode matrix in GF(2^8).
 - CRC - Fast implementations of cyclic redundancy check. Six different
-        polynomials supported.
+polynomials supported.
     - iscsi32, ieee32, t10dif, ecma64, iso64, jones64.
 - Raid - calculate and operate on XOR and P+Q parity found in common
-         RAID implementations.
+RAID implementations.
 - Compression - Fast deflate-compatible data compression.
 - De-compression - Fast inflate-compatible data compression.
 
@@ -64,14 +65,34 @@ Provides:	%{isal_libname}-static%{?_isa} = %{version}
 %description -n %{isal_devname}
 Development files for the %{isal_libname} library.
 
+%if (0%{?suse_version} > 0)
+%global __debug_package 1
+%global _debuginfo_subpackages 0
+%debug_package
+%endif
+
 %prep
 %autosetup -p1
 
 %build
+%if (0%{?suse_version} > 0)
+export CFLAGS="%{optflags} -fPIC -pie"
+export CXXFLAGS="%{optflags} -fPIC -pie"
+# this results in compiler errors, so we are unable to produce PIEs on Leap15
+#export LDFLAGS="$LDFLAGS -pie"
+%else
+export CFLAGS="${CFLAGS:-%optflags}"
+export CXXFLAGS="${CXXFLAGS:-%optflags}"
+export FFLAGS="${FFLAGS:-%optflags}"
+%if "%{?build_ldflags}" != ""
+export LDFLAGS="${LDFLAGS:-%{build_ldflags}}"
+%endif
+%endif
+
 if [ ! -f configure ]; then
     ./autogen.sh --no-oshmem
 fi
-%configure
+%configure --disable-static
 
 %{make_build}
 
@@ -102,16 +123,20 @@ find %{?buildroot} -name *.la -print0 | xargs -r0 rm -f
 %license LICENSE
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.a
 %{_libdir}/pkgconfig/libisal.pc
 
 %changelog
+* Fri May 19 2023 Brian J. Murrell <brian.murrell@intel> - 2.30.0-2
+- Disable static library build
+- Add debuginfo generation for Leap 15
+- Add hardened build flags for CentOS 7 and Leap 15
+
 * Thu Jan 28 2021 Brian J. Murrell <brian.murrell@intel> - 2.30.0-1
 - Update to latest
 - Add %%{_libdir}/pkgconfig/libisal.pc to -devel package
 
 * Tue Jun 16 2020 Brian J. Murrell <brian.murrell@intel> - 2.26.0-3
-- Add %license files
+- Add %%license files
 
 * Wed Oct 02 2019 John E. Malmberg <john.e.malmberg@intel> - 2.26.0-2
 - Fix some SUSE rpmlint packaging complaints

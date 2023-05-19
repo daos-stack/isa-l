@@ -1,0 +1,7 @@
+# This line is mandatory to access the configuration functions
+from Config import *
+
+# https://github.com/rpm-software-management/rpmlint/issues/856
+addFilter('isa-l\.x86_64: W: incoherent-version-in-changelog [-0-9.]+ \[\'[-0-9.]+\.suse\.lp[0-9]+\', \'[-0-9.]+\.suse\.lp[0-9]+\'\]')
+
+addFilter('libisa(-l|l2)\.x86_64: W: obsolete-not-provided isa-l')
