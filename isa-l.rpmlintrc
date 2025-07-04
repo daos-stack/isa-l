@@ -5,3 +5,4 @@ from Config import *
 addFilter('isa-l\.x86_64: W: incoherent-version-in-changelog [-0-9.]+ \[\'[-0-9.]+\.suse\.lp[0-9]+\', \'[-0-9.]+\.suse\.lp[0-9]+\'\]')
 
 addFilter('libisa(-l|l2)\.x86_64: W: obsolete-not-provided isa-l')
+addFilter('(isa-l.src|isa-l.x86_64|libisa-l.x86_64): E: spelling-error .* libisal')
